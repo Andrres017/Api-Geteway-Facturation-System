@@ -1,0 +1,25 @@
+{
+  "name": "api-geteway-facturation-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrres017/Api-Geteway-Facturation-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrres017/Api-Geteway-Facturation-System/issues"
+  },
+  "homepage": "https://github.com/Andrres017/Api-Geteway-Facturation-System#readme",
+  "dependencies": {
+    "fastify": "^4.17.0",
+    "joi": "^17.9.2",
+    "mongoose": "^7.2.2"
+  }
+}
