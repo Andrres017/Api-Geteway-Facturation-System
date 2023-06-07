@@ -1,18 +1,23 @@
-const Joi = require('joi');
+const createProductSchema = {
+  type: 'object',
+  properties: {
+    nombre: { type: 'string' },
+    descripcion: { type: 'string' },
+    precio: { type: 'number' }
+  },
+  required: ['nombre', 'descripcion', 'precio']
+};
 
-const createProductSchema = Joi.object({
-  nombre: Joi.string().required(),
-  descripcion: Joi.string().required(),
-  precio: Joi.number().required(),
-});
-
-const updateProductSchema = Joi.object({
-  nombre: Joi.string(),
-  descripcion: Joi.string(),
-  precio: Joi.number(),
-});
+const updateProductSchema = {
+  type: 'object',
+  properties: {
+    nombre: { type: 'string' },
+    descripcion: { type: 'string' },
+    precio: { type: 'number' }
+  }
+};
 
 module.exports = {
   createProductSchema,
-  updateProductSchema,
+  updateProductSchema
 };
