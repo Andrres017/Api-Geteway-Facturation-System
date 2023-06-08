@@ -1,5 +1,5 @@
 const ProductService = require('../services/productService');
-
+const {validationCreateSchema} = require('../validations/productValidation')
 class ProductController {
   async getAllProducts(req, reply) {
     try {
@@ -22,6 +22,11 @@ class ProductController {
 
   async createProduct(req, reply) {
     const { body } = req;
+    const val = validationCreateSchema(body)
+    
+    if(val!==null){
+      reply.status(500).send(val);
+    }
     try {
       const product = await ProductService.createProduct(body);
       reply.code(201).send(product);

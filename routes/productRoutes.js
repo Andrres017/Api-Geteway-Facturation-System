@@ -8,10 +8,10 @@ async function productRoutes(fastify, options) {
   fastify.get('/product/:id', ProductController.getProductById);
 
   // Ruta POST '/product'
-  fastify.post('/product', { schema: { body: fastify.ajv.compile(fastify.schemas.createProductSchema) } }, ProductController.createProduct);
+  fastify.post('/product', ProductController.createProduct);
 
   // Ruta PUT '/product/:id'
-  fastify.put('/product/:id', { schema: { body: fastify.ajv.compile(fastify.schemas.updateProductSchema) } }, ProductController.updateProduct);
+  fastify.put('/product/:id', ProductController.updateProduct);
 
   // Ruta DELETE '/product/:id'
   fastify.delete('/product/:id', ProductController.deleteProduct);

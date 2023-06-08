@@ -1,7 +1,6 @@
 const fastify = require('fastify')();
 const mongoose = require('mongoose');
 const productRoutes = require('./routes/productRoutes');
-const Ajv = require('ajv');
 
 // Establece la conexión con MongoDB usando Mongoose
 mongoose.connect('mongodb://localhost:27017/productos', {
@@ -12,8 +11,6 @@ mongoose.connect('mongodb://localhost:27017/productos', {
 // Middleware para analizar JSON en las solicitudes
 fastify.register(require('@fastify/formbody'));
 
-// Crea una instancia de AJV
-const ajv = new Ajv({ coerceTypes: true });
 
 // Ruta base del API Gateway
 fastify.get('/', (request, reply) => {
@@ -21,7 +18,7 @@ fastify.get('/', (request, reply) => {
 });
 
 // Rutas de productos
-fastify.register(productRoutes, { prefix: '/api', ajv });
+fastify.register(productRoutes, { prefix: '/api' });
 
 // Opciones de configuración para el servidor Fastify
 const options = {

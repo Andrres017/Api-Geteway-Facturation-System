@@ -1,23 +1,16 @@
-const createProductSchema = {
-  type: 'object',
-  properties: {
-    nombre: { type: 'string' },
-    descripcion: { type: 'string' },
-    precio: { type: 'number' },
-  },
-  required: ['nombre', 'descripcion', 'precio'],
-};
+const {createProductSchema,updateProductSchema} = require("./schema/productSchema");
 
-const updateProductSchema = {
-  type: 'object',
-  properties: {
-    nombre: { type: 'string' },
-    descripcion: { type: 'string' },
-    precio: { type: 'number' },
-  },
-};
+const Ajv = require('ajv');
+const ajv = new Ajv()
+
+const validationCreateSchema=(body)=>{
+  
+  const validate = ajv.compile(createProductSchema)
+  validate(body)
+  return(validate.errors)
+ 
+}
 
 module.exports = {
-  createProductSchema,
-  updateProductSchema,
-};
+  validationCreateSchema
+}
