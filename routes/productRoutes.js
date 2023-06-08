@@ -1,8 +1,4 @@
 const ProductController = require('../controllers/productController');
-const {
-  createProductSchema,
-  updateProductSchema,
-} = require('../validations/productValidation');
 
 async function productRoutes(fastify, options) {
   // Ruta GET '/product'
@@ -12,10 +8,10 @@ async function productRoutes(fastify, options) {
   fastify.get('/product/:id', ProductController.getProductById);
 
   // Ruta POST '/product'
-  fastify.post('/product', { schema: { body: createProductSchema } }, ProductController.createProduct);
+  fastify.post('/product', { schema: { body: fastify.ajv.compile(fastify.schemas.createProductSchema) } }, ProductController.createProduct);
 
   // Ruta PUT '/product/:id'
-  fastify.put('/product/:id', { schema: { body: updateProductSchema } }, ProductController.updateProduct);
+  fastify.put('/product/:id', { schema: { body: fastify.ajv.compile(fastify.schemas.updateProductSchema) } }, ProductController.updateProduct);
 
   // Ruta DELETE '/product/:id'
   fastify.delete('/product/:id', ProductController.deleteProduct);

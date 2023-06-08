@@ -3,9 +3,9 @@ const createProductSchema = {
   properties: {
     nombre: { type: 'string' },
     descripcion: { type: 'string' },
-    precio: { type: 'number' }
+    precio: { type: 'number' },
   },
-  required: ['nombre', 'descripcion', 'precio']
+  required: ['nombre', 'descripcion', 'precio'],
 };
 
 const updateProductSchema = {
@@ -13,11 +13,11 @@ const updateProductSchema = {
   properties: {
     nombre: { type: 'string' },
     descripcion: { type: 'string' },
-    precio: { type: 'number' }
-  }
+    precio: { type: 'number' },
+  },
 };
 
 module.exports = {
   createProductSchema,
-  updateProductSchema
+  updateProductSchema,
 };

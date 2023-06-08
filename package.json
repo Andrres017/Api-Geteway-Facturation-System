@@ -19,11 +19,11 @@
   "homepage": "https://github.com/Andrres017/Api-Geteway-Facturation-System#readme",
   "dependencies": {
     "@fastify/formbody": "^7.4.0",
+    "ajv": "^8.12.0",
     "avvio": "^8.2.1",
     "fastify": "^4.17.0",
     "fastify-formbody": "^5.3.0",
     "fastify-raw-body": "^4.2.0",
-    "joi": "^17.9.2",
     "mongoose": "^7.2.2"
   }
 }
